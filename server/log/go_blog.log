@@ -1,0 +1,13 @@
+{"level":"INFO","time":"2026-05-20T17:40:08.248+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T17:45:38.616+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T17:48:49.698+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:8080"}
+{"level":"INFO","time":"2026-05-20T17:54:27.579+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T18:02:17.996+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T19:03:44.301+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T19:07:26.375+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-20T19:10:12.290+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"ERROR","time":"2026-05-21T16:23:27.051+0800","caller":"initialize/redis.go:25","msg":"Failed to connect to Redis:","error":"dial tcp [::1]:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"INFO","time":"2026-05-21T16:42:45.197+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-21T16:42:45.197+0800","caller":"initialize/cron.go:17","msg":"start","keyAndValues":null}
+{"level":"INFO","time":"2026-05-21T16:45:45.278+0800","caller":"core/server.go:22","msg":"server run success on ","address":"localhost:9824"}
+{"level":"INFO","time":"2026-05-21T16:45:45.278+0800","caller":"initialize/cron.go:17","msg":"start","keyAndValues":null}
