@@ -1,0 +1,32 @@
+<!-- iframe 内嵌（含会话列表侧边栏，零密钥） -->
+<!--
+  可填写完整公网 BFF 地址，例如 "https://your-system.example.com/gateway/agent"。
+  留空时使用当前站点的 /agent；资源地址留空时跟随 API 地址。
+  token 默认读取 localStorage.NEMS_TOKEN；也可定义 window.GOCLAW_EMBED_AUTHORIZATION。
+-->
+<div id="goclaw-chatbot-inline" style="width: 100%; height: 100%; min-height: 44rem;"></div>
+<script>
+    (() => {
+        const GOCLAW_EMBED_BASE_URL = "http://192.168.111.185/agent_embed/"; // 可填完整公网 BFF 地址；留空使用当前站点的 /agent。
+        const GOCLAW_EMBED_RESOURCE_BASE_URL = ""; // 可填独立组件资源地址；留空跟随 API 地址。
+        const GOCLAW_EMBED_DEFAULT_BASE = "/agent";
+        const goclawEmbedBase = (GOCLAW_EMBED_BASE_URL || GOCLAW_EMBED_DEFAULT_BASE).replace(/\/+$/, "");
+        const goclawEmbedResourceBase = (GOCLAW_EMBED_RESOURCE_BASE_URL || GOCLAW_EMBED_BASE_URL || GOCLAW_EMBED_DEFAULT_BASE).replace(/\/+$/, "");
+        const goclawEmbedBaseMode = GOCLAW_EMBED_BASE_URL ? "custom" : "default";
+        window.goclawChatbotConfig = {
+            mode: "iframe",
+            container: "#goclaw-chatbot-inline",
+            agentId: "019e0614-70fe-74b4-9651-4b27b32d7023",
+            baseUrl: goclawEmbedBase,
+            resourceBaseUrl: goclawEmbedResourceBase,
+            baseUrlMode: goclawEmbedBaseMode,
+            iframeStyle: "workspace",
+            window: { height: "100%", minHeight: "44rem" },
+            theme: "light"
+        };
+        const s = document.createElement("script");
+        s.src = goclawEmbedResourceBase + "/embed.min.js";
+        s.defer = true;
+        document.currentScript.after(s);
+    })();
+</script>

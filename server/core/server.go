@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"server/global"
 	"server/initialize"
+	"server/service"
 
 	"go.uber.org/zap"
 )
@@ -15,6 +16,8 @@ type server interface {
 func RunServer() {
 	addr := global.Config.System.Addr()
 	Router := initialize.InitRouter()
+	// LoadAll 从数据库加载所有的JWT黑名单并加入缓存
+	service.LoadAll()
 
 	s := initServer(addr, Router)
 

@@ -17,4 +17,5 @@ var (
 	BlackCache local_cache.Cache // 用于存储黑名单数据的本地缓存实例
 	Redis      redis.Client
 	ESClient   *elasticsearch.TypedClient
+	
 )

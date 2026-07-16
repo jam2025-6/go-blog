@@ -1,0 +1,7 @@
+├── gold-data (数据聚合平台)
+├── centralized-control-screen (集控大屏)
+├── gold-editor (组态编辑)
+├── gold-operation-screen (运营大屏)
+├── saas-frontend (saas)
+├── work-order-frontend (工单系统)
+├── gold-process-template (审批流)

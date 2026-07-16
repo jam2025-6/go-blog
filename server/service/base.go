@@ -1,6 +1,7 @@
 package service
 
 import (
+	"log"
 	"server/global"
 	"server/utils"
 	"time"
@@ -12,6 +13,7 @@ import (
 type BaseService struct{}
 
 func (b *BaseService) SendEmailVerificationCode(c *gin.Context, to string) error {
+	log.Println(to)
 	verificationCode := utils.GenerateVerficationCode(6)
 	// 在当前时间上加上 5 分钟,然后转成unix时间戳
 	expireTime := time.Now().Add(5 * time.Minute).Unix()
@@ -20,8 +22,10 @@ func (b *BaseService) SendEmailVerificationCode(c *gin.Context, to string) error
 	session.Set("verification_code", verificationCode)
 	session.Set("email", to)
 	session.Set("expire_time", expireTime)
-	_ = session.Save()
-
+	if err := session.Save(); err != nil {
+		log.Println("session save error:", err)
+		return err
+	}
 	subject := "您的邮箱验证码"
 	body := `亲爱的用户[` + to + `]，<br/>
 	<br/>
@@ -38,5 +42,6 @@ func (b *BaseService) SendEmailVerificationCode(c *gin.Context, to string) error
 	祝好，<br/>` +
 		global.Config.Website.Title + `<br/>
 	<br/>`
-
+	_ = utils.Email(to, subject, body)
+	return nil
 }
